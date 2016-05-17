@@ -221,10 +221,11 @@ resettest(fit)
 
 ```r
 pca <- prcomp(act_hy[, 3:6], scale=TRUE)
-fviz_pca_biplot(pca) + theme_bw() + labs(title ="Участники сообщества в координатах ГК", x = "ГК1", y = "ГК2")
+fviz_pca_biplot(pca) + theme_bw() + 
+    labs(title ="Участники сообщества в координатах ГК", x = "ГК1", y = "ГК2")
 ```
 
-![](part3_files/figure-html/p3_pca-1.png)<!-- -->
+![](part3_files/figure-html/p3_pca-1.png)
 
 ```r
 # Большая часть участников никак не проявляла активности
@@ -315,15 +316,16 @@ plot(res.hc, cex = 0.6, main='Дендрограмма участников',
 rect.hclust(res.hc, k = 4, border = 2:5)
 ```
 
-![](part3_files/figure-html/p3_hclust-1.png)<!-- -->
+![](part3_files/figure-html/p3_hclust-1.png)
 
 ```r
 # отображаем кластеры в координатах главных компонент
 pca = prcomp(act_temp, scale = TRUE)
-fviz_pca_biplot(pca, habillage = grp, addEllipses=TRUE, ellipse.level=0.75) + theme_bw() + labs(title ="Участники сообщества в координатах ГК", x = "ГК1", y = "ГК2")
+fviz_pca_biplot(pca, habillage = grp, addEllipses=TRUE, ellipse.level=0.75) + theme_bw() + 
+    labs(title ="Участники сообщества в координатах ГК", x = "ГК1", y = "ГК2")
 ```
 
-![](part3_files/figure-html/p3_hclust-2.png)<!-- -->
+![](part3_files/figure-html/p3_hclust-2.png)
 
 Полученный точечный график можно интерпретировать следующим образом:
 
