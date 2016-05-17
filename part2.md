@@ -143,7 +143,7 @@ barplot(sex, main='Пол участников')
 barplot(city_vrn, main='Город участников')
 ```
 
-![](part2_files/figure-html/p2_dirtyplots-1.png)<!-- -->
+![](part2_files/figure-html/p2_dirtyplots-1.png)
 
 ```r
 # Возраст
@@ -152,15 +152,16 @@ hist(members$age, main='Возраст участников',
      xlab='Возраст', ylab='Частота')
 ```
 
-![](part2_files/figure-html/p2_dirtyplots-2.png)<!-- -->
+![](part2_files/figure-html/p2_dirtyplots-2.png)
 
 ```r
 # статистика активности в группе на стене
-ggplot(data=gather(df_sparklines, 'value', 'type', 2:6), aes(period, type)) + geom_line(aes(colour=value))+
+ggplot(data=gather(df_sparklines, 'value', 'type', 2:6), aes(period, type)) + 
+    geom_line(aes(colour=value))+
     labs(title='Активность участников группы', x='Дата', y='Количество')
 ```
 
-![](part2_files/figure-html/p2_dirtyplots-3.png)<!-- -->
+![](part2_files/figure-html/p2_dirtyplots-3.png)
 
 ```r
 # сравнение активности сейчас и полгода назад в пересчете на один пост
@@ -170,7 +171,7 @@ ggplot(data=gather(cbind(df_slope, type=row.names(df_slope)), 'x', 'value', 1:2)
          x='Период', y='Взвешенная активность')
 ```
 
-![](part2_files/figure-html/p2_dirtyplots-4.png)<!-- -->
+![](part2_files/figure-html/p2_dirtyplots-4.png)
 
 Хотя получившиеся графики информативны и выполняют свою задачу,  оформим руководствуясь принципами Эдварда Тафти из книги "Visual Display of Quantitative Information". На данный момент в R нет единой библиотеки, которая бы делала подобные графики, хотя [есть реализации](http://motioninsocial.com/tufte/) отдельных из них. 
 
@@ -241,7 +242,7 @@ par(mar=c(2,6,2,4))
 brickplot_norm(age_bins, cuts=.05)
 ```
 
-![](part2_files/figure-html/p2_fig1-1.png)<!-- -->
+![](part2_files/figure-html/p2_fig1-1.png)
 
 
 #### 4.2. Искрографики активности пользователей на стене
@@ -347,7 +348,7 @@ sparklines <- function(dat, smooth=TRUE, box=c('iq', 'ci')[2]){
 sparklines(df_sparklines)
 ```
 
-![](part2_files/figure-html/p2_fig2-1.png)<!-- -->
+![](part2_files/figure-html/p2_fig2-1.png)
 
 
 #### 4.3. Сравнение активности пользователей за прошедшие полгода
@@ -396,7 +397,7 @@ slopegraph_2col <- function(df){
 slopegraph_2col(df_slope)
 ```
 
-![](part2_files/figure-html/p2_fig3-1.png)<!-- -->
+![](part2_files/figure-html/p2_fig3-1.png)
 
 ### 5. Заключение
 
